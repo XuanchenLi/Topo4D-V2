@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description" -->
+        <!-- content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos."> -->
+  <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Prior-Guided Gaussian Splatting for High-Fidelity 4D Expression, Head Pose, and Gaze Capture</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                Xuanchen Li<sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+            <span class="author-block">
+                Jianyu Wang<sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://cyh-sj.github.io/">
+                Yuhao Cheng</a><sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+          
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://xingyuren.github.io/">
+                Xingyu Ren</a><sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+            <span class="author-block">
+                Yanping Li<sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?user=yDEavdMAAAAJ">
+                Xiaokang Yang<sup></sup>&nbsp&nbsp&nbsp&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://daodaofr.github.io/">
+                Yichao Yan</a><sup>&Dagger;</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup></sup>MoE Key Lab of Artificial Intelligence, AI Institute, Shanghai Jiao Tong University</span>
+          </div>
+
+          
+          <div class="is-size-6">
+            <span>(<sup>&Dagger;</sup>Corresponding author)</span>
+          </div>
+          <div class="is-size-5 has-text-weight-bold">
+
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.00495"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img class="img-responsive" src="./static/images/teaser.png" alt="Teaser">
+      <h2 class="subtitle has-text-justified">
+        <span class="Topo4D-V2">Given calibrated multi-view videos, our scan-free 4D reconstruction method can faithfully capture the performer’s head pose, expression and gaze.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           Production-level digital humans require not only emotional facial expression dynamics but also realistic head pose and gaze to achieve lifelike presence. However, traditional capture pipelines are costly to reconstruct facial details and struggle to acquire pose and gaze simultaneously. These pipelines rely on complex workflows involving specialized operation, high computational overhead, and labor-intensive post-processing, making them unsuitable for large-scale production. To address these limitations, we introduce a scan-free 4D reconstruction framework that simultaneously captures topology-consistent expression dynamics, pose, and gaze from calibrated multi-view videos. Our approach decomposes the task into a prior-guided multi-stage tracking process. By integrating multi-source priors at varying granularities, including coarse model-based priors for initialization and fine-grained Gaussian-derived priors for refinement, we effectively reduce cumulative errors and mutual interference among pose, expression, and gaze. Furthermore, to capture the geometry details and address the over-smoothing issue, we design a collaborative strategy between a topology-preserving Gaussian set and a detailed non-topological Gaussian set, where the former provides reliable structural and motion priors while the latter captures details. Based on this hybrid representation, we propose a normal-guided detail transfer mechanism that effectively enhances the mesh details. Comprehensive experiments demonstrate that our method outperforms existing approaches in reconstruction quality and robustness.
+          </p>
+        
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+         <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/videos/intro.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+
+  </div>
+</section> 
+
+
+  
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@inproceedings{li2025Topo4D-V2,
+  title={Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture},
+  author={Li, Xuanchen and Wang, Jianyu and Cheng, Yuhao and Zeng, Yikun and Ren, Xingyu and Zhu, Wenhan and Zhao, Weiming and Yan, Yichao},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={204--214},
+  year={2025}
+}
+    </code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            We borrow the website <a href="https://github.com/nerfies/nerfies.github.io">template</a> from this,
+            many thanks for their great help!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
